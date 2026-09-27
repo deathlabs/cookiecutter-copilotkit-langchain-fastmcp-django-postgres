@@ -1,6 +1,6 @@
-# `cookiecutter-copilotkit-django-fastmcp-postgres`
+# `cookiecutter-copilotkit-langchain-fastmcp-django-postgres`
 
-[![CI Pipeline](https://github.com/deathlabs/cookiecutter-copilotkit-django-fastmcp-postgres/actions/workflows/ci.yaml/badge.svg)](https://github.com/deathlabs/cookiecutter-copilotkit-django-fastmcp-postgres/actions/workflows/ci.yaml)
+[![CI Pipeline](https://github.com/deathlabs/cookiecutter-copilotkit-langchain-fastmcp-django-postgres/actions/workflows/ci.yaml/badge.svg)](https://github.com/deathlabs/cookiecutter-copilotkit-langchain-fastmcp-django-postgres/actions/workflows/ci.yaml)
 
 A Cookiecutter template for creating a full-stack app consisting of a CopilotKit frontend, Django Ninja backend, FastMCP server, and PostgreSQL database. 
 
@@ -15,7 +15,7 @@ The instructions below assume you have or will get the following software instal
 **Step 1.** Run Cookiecutter against the GitHub repository.
 
 ```bash
-cookiecutter https://github.com/deathlabs/cookiecutter-copilotkit-django-fastmcp-postgres.git
+cookiecutter https://github.com/deathlabs/cookiecutter-copilotkit-langchain-fastmcp-django-postgres.git
 ```
 
 When prompted, either accept the default values or provide your own.
@@ -33,13 +33,13 @@ make
 **Step 1.** Clone the repository.
 
 ```bash
-git clone https://github.com/deathlabs/cookiecutter-copilotkit-django-fastmcp-postgres.git
+git clone https://github.com/deathlabs/cookiecutter-copilotkit-langchain-fastmcp-django-postgres.git
 ```
 
 **Step 2.** Change to the repository directory.
 
 ```bash
-cd cookiecutter-copilotkit-django-fastmcp-postgres
+cd cookiecutter-copilotkit-langchain-fastmcp-django-postgres
 ```
 
 **Step 3.** Use the Makefile to create, start, and test an example app. The Makefile places the created app in the `build` folder, in a subfolder named after the server.
