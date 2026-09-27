@@ -1,0 +1,31 @@
+{
+  "__project_names": [
+    "Rorschach",
+    "NiteOwl",
+    "SilkSpectre",
+    "DoctorManhattan",
+    "Ozymandias",
+    "TheComedian",
+    "HoodedJustice",
+    "CaptainMetropolis",
+    "Mothman",
+    "DollarBill",
+    "Silhouette",
+    "Moloch",
+    "Bubastis",
+    "BigFigure"
+  ],
+  "__random_descriptions": [
+    "investigate the Comedian's murder",
+    "uncover Ozymandias's plan",
+    "track the missing artists on the island",
+    "respond to the squid's arrival in New York"
+  ],
+  "project_name": "{{ cookiecutter.__project_names | random }}",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "project_description": "{{ cookiecutter.project_name }} is an app that can help you {{ cookiecutter.__random_descriptions | random }}.",
+  "author": "Victor Fernandez III",
+  "year": 2026,
+  "github_organization": "deathlabs",
+  "github_repository": "{{ cookiecutter.github_organization }}/{{ cookiecutter.project_slug }}"
+}
