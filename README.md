@@ -1,0 +1,1 @@
+# cookiecutter-copilotkit-django-fastmcp-postgres
