@@ -1,7 +1,7 @@
 ---
-repo_url: https://pages.cdso.army.mil/ai2c/squidfall/docs/
-site_name: squidfall
-docs_dir: squidfall
+repo_url: https://github.com/{{ cookiecutter.github_repository }}
+site_name: {{ cookiecutter.project_name }}
+docs_dir: {{ cookiecutter.project_slug }}
 theme: readthedocs
 nav:
   - 'Application':
@@ -12,7 +12,7 @@ nav:
     - 'Tools': 'application/tools.md'
     - 'Inference': 'application/inference.md'
     - 'Frontend': 'application/frontend.md'
-  - 'Continuous Integration': 
+  - 'Continuous Integration':
     - 'Overview': 'continuous-integration/overview.md'
     - 'Setup': 'continuous-integration/setup.md'
   - 'Continuous Delivery':

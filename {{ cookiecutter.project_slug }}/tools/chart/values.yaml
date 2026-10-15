@@ -1,0 +1,16 @@
+# tools/chart/values.yaml
+
+---
+app: {{ cookiecutter.project_slug }}
+namespace: {{ cookiecutter.__deployment_slug }}
+replicaCount: 1
+image:
+  pullPolicy: Always
+  repository: {{ cookiecutter.project_slug }}/tools
+  tag: latest
+service:
+  type: ClusterIP
+  name: tools
+  port: 8002
+geocoding:
+  apiKey: "###ZARF_VAR_GEOCODING_APIKEY###"

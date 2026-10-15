@@ -1,0 +1,23 @@
+# backend/chart/values.yaml
+
+---
+app: {{ cookiecutter.project_slug }}
+namespace: {{ cookiecutter.__deployment_slug }}
+replicaCount: 1
+image:
+  pullPolicy: Always
+  repository: {{ cookiecutter.project_slug }}/backend
+  tag: latest
+service:
+  type: ClusterIP
+  name: backend
+  port: 8000
+database:
+  engine: postgres
+  host: database
+  port: 5432
+  sslmode: disable
+  secret_key: {{ cookiecutter.project_slug }}
+  name: {{ cookiecutter.project_slug }}
+  user: postgres
+  password: postgres

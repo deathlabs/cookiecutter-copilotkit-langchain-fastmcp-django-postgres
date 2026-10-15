@@ -1,0 +1,23 @@
+# inference/chart/values.yaml
+
+---
+app: {{ cookiecutter.project_slug }}
+namespace: {{ cookiecutter.__deployment_slug }}
+replicaCount: 1
+image:
+  pullPolicy: Always
+  repository: {{ cookiecutter.project_slug }}/inference
+  tag: latest
+service:
+  type: ClusterIP
+  name: inference
+  port: 8001
+tools:
+  endpoint: http://tools:8002/mcp
+backend:
+  endpoint: http://backend:8000
+model:
+  provider: openai
+openai:
+  model: gpt-4o
+  apiKey: "###ZARF_VAR_OPENAI_APIKEY###"

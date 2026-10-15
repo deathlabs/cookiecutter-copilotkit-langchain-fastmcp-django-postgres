@@ -1,0 +1,59 @@
+# uds-package.yaml
+
+---
+apiVersion: uds.dev/v1alpha1
+kind: Package
+metadata:
+  namespace: {{ cookiecutter.__deployment_slug }}
+  name: {{ cookiecutter.__deployment_slug }}
+spec:
+  network:
+    allow:
+      # Allow all the pods in the app to talk to each other.
+      - description: Inbound internally
+        remoteGenerated: IntraNamespace
+        direction: Ingress
+        selector:
+          app.kubernetes.io/app: {{ cookiecutter.project_slug }}
+      - description: Outbound internally
+        remoteGenerated: IntraNamespace
+        direction: Egress
+        selector:
+          app.kubernetes.io/app: {{ cookiecutter.project_slug }}
+
+      # Allow traffic to specific external endpoints.
+      - description: Outbound to model provider
+        direction: Egress
+        selector:
+          app.kubernetes.io/component: inference
+        port: 443
+        remoteHost: api.openai.com
+      - description: Outbound to the Geocoding API
+        direction: Egress
+        selector:
+          app.kubernetes.io/component: tools
+        port: 443
+        remoteHost: geocode.maps.co
+      - description: Outbound to the Weather API
+        direction: Egress
+        selector:
+          app.kubernetes.io/component: tools
+        port: 443
+        remoteHost: api.weather.gov
+
+    # Allow user traffic to the frontend.
+    expose:
+      - service: frontend
+        selector:
+          app.kubernetes.io/component: frontend
+        host: {{ cookiecutter.__deployment_slug }}
+        port: 8080
+
+  # Put the frontend behind a MFA-wall.
+  sso:
+    - name: {{ cookiecutter.__deployment_slug }}
+      clientId: {{ cookiecutter.__deployment_slug }}
+      redirectUris:
+        - https://{{ cookiecutter.__deployment_slug }}.uds.dev/login
+      enableAuthserviceSelector:
+        app.kubernetes.io/component: frontend

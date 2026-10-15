@@ -1,11 +1,11 @@
 FROM alpine:3.23
-LABEL image.authors="Victor Fernandez III <@cyberphor>"
+LABEL image.authors="{{ cookiecutter.author }}"
 WORKDIR /home/docs/
 COPY mkdocs.yml mkdocs.yml
-COPY squidfall/ squidfall/
+COPY {{ cookiecutter.project_slug }}/ {{ cookiecutter.project_slug }}/
 RUN apk add --no-cache --update mkdocs python3 py3-pip &&\
-    adduser -D squidfall -h /home/docs &&\
-    chown -R squidfall:squidfall /home/docs
-USER squidfall
+    adduser -D {{ cookiecutter.project_slug }} -h /home/docs &&\
+    chown -R {{ cookiecutter.project_slug }}:{{ cookiecutter.project_slug }} /home/docs
+USER {{ cookiecutter.project_slug }}
 EXPOSE 5050
 CMD [ "mkdocs", "serve", "--dev-addr=0.0.0.0:5050" ]

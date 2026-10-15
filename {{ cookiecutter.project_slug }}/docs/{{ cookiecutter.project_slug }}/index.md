@@ -1,0 +1,1 @@
+The purpose of {{ cookiecutter.project_name }} is to serve as an example of an agent-native application. These docs were written to help developers re-create and modify components of {{ cookiecutter.project_name }} to support whatever project they're working on.

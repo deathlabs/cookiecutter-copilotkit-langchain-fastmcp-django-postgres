@@ -1,0 +1,8 @@
+# zarf-config.yaml
+
+---
+package:
+  deploy:
+    set:
+      OPENAI_APIKEY: xxx
+      GEOCODING_APIKEY: xxx
